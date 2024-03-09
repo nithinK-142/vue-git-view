@@ -4,7 +4,11 @@
   >
     <div>
       <div class="relative flex justify-between mb-2">
-        <h5 class="text-lg font-medium text-blue-600">{{ repo.name }}</h5>
+        <h5 class="text-lg font-medium text-blue-600 cursor-pointer">
+          <a :href="repo.html_url" target="_blank" rel="noopener noreferrer">
+            {{ repo.name }}
+          </a>
+        </h5>
         <p
           class="absolute right-0 top-0 text-[10px] px-3 border border-neutral-300 text-neutral-500 font-medium rounded-full"
         >
