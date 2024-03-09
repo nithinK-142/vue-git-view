@@ -14,7 +14,7 @@ interface User {
   following: number;
 }
 
-interface Repository {
+interface Repo {
   id: number;
   name: string;
   description: string;
@@ -29,7 +29,7 @@ export const useGithubStore = defineStore({
     totalPages: 0,
     currPage: 1,
     perPage: 6,
-    repos: [] as Repository[],
+    repos: [] as Repo[],
     user: null as User | null,
     isUserLoading: false,
     isReposLoading: false,
@@ -56,7 +56,7 @@ export const useGithubStore = defineStore({
       try {
         this.isReposLoading = true;
         const response = await axios.get(
-          `https://api.github.com/users/${this.searchUser}/repos?page=${this.currPage}&per_page=${this.perPage}`,
+          `https://api.github.com/users/${this.searchUser}/repos?page=${this.currPage}&per_page=${this.perPage}&sort=updated`,
           {
             headers: {
               Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
