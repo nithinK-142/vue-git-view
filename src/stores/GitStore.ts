@@ -1,4 +1,3 @@
-// src/store/github.ts
 import { defineStore } from "pinia";
 import axios from "axios";
 
@@ -32,26 +31,31 @@ export const useGithubStore = defineStore({
     perPage: 6,
     repos: [] as Repository[],
     user: null as User | null,
+    isReposLoading: false,
   }),
   actions: {
     async getUser(): Promise<void> {
-      const response = await axios.get(
-        `https://api.github.com/users/${this.searchSubject}`
-      );
-      this.user = response.data;
-      this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
+      try {
+        // this.loading = true;
+        const response = await axios.get(
+          `https://api.github.com/users/${this.searchSubject}`
+        );
+        this.user = response.data;
+        this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
+      } finally {
+        // this.loading = false;
+      }
     },
     async getRepos(): Promise<void> {
-      const response = await axios.get(
-        `https://api.github.com/users/${this.searchSubject}/repos`,
-        {
-          params: {
-            page: this.currPage,
-            per_page: this.perPage,
-          },
-        }
-      );
-      this.repos = response.data;
+      try {
+        this.isReposLoading = true;
+        const response = await axios.get(
+          `https://api.github.com/users/${this.searchSubject}/repos?page=${this.currPage}&per_page=${this.perPage}`
+        );
+        this.repos = response.data;
+      } finally {
+        this.isReposLoading = false;
+      }
     },
     async nextPage(): Promise<void> {
       if (this.currPage < this.totalPages) {
@@ -74,24 +78,3 @@ export const useGithubStore = defineStore({
     },
   },
 });
-
-// async getLanguages(url: string): Promise<any> {
-//   const response = await axios.get(url);
-//   return response.data;
-// },
-// setrepos(newrepos: Repository[]): void {
-//   this.repos = newrepos;
-// },
-// getStoredSearchTerm(): string {
-//   return localStorage.getItem("searchTerm") || "";
-// },
-// setCurrPage(pageNumber: number): void {
-//   this.currPage = pageNumber;
-// },
-// setSearchTerm(term: string): void {
-//   localStorage.setItem("searchTerm", term);
-//   this.searchSubject = term;
-// },
-// setTotalPages(pages: number): void {
-//   this.totalPages = pages;
-// },
