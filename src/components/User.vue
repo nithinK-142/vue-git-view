@@ -1,5 +1,21 @@
 <template>
-  <div v-if="user" class="flex flex-col items-center w-full mb-4">
+  <div v-if="isUserLoading" class="flex flex-col items-center w-full mb-4">
+    <div class="w-64 h-64 bg-gray-300 rounded-full animate-pulse"></div>
+
+    <div class="flex flex-col justify-start mt-4">
+      <div class="w-48 h-6 mt-4 bg-gray-300 rounded animate-pulse"></div>
+      <div class="w-32 h-6 mt-2 bg-gray-300 rounded animate-pulse"></div>
+      <div class="w-56 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
+      <div class="w-40 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
+      <div class="w-40 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
+      <div class="w-24 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
+      <div class="w-24 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
+    </div>
+  </div>
+  <div
+    v-else-if="!isUserLoading && user"
+    class="flex flex-col items-center w-full mb-4"
+  >
     <div class="w-64 h-64">
       <img
         :src="user.avatar_url"
@@ -47,9 +63,11 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 import { useGithubStore } from "@/stores/GitStore";
+import { storeToRefs } from "pinia";
 
 const githubStore = useGithubStore();
 
+const { isUserLoading } = storeToRefs(githubStore);
 onMounted(async () => await githubStore.getUser());
 
 const user = computed(() => githubStore.user);
