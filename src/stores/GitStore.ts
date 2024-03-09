@@ -25,32 +25,43 @@ interface Repository {
 export const useGithubStore = defineStore({
   id: "github",
   state: () => ({
-    searchSubject: localStorage.getItem("searchTerm") || "nithinK-142",
+    searchUser: localStorage.getItem("searchTerm") || "nithinK-142",
     totalPages: 0,
     currPage: 1,
     perPage: 6,
     repos: [] as Repository[],
     user: null as User | null,
+    isUserLoading: false,
     isReposLoading: false,
   }),
   actions: {
     async getUser(): Promise<void> {
       try {
-        // this.loading = true;
+        this.isUserLoading = true;
         const response = await axios.get(
-          `https://api.github.com/users/${this.searchSubject}`
+          `https://api.github.com/users/${this.searchUser}`,
+          {
+            headers: {
+              Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+            },
+          }
         );
         this.user = response.data;
         this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
       } finally {
-        // this.loading = false;
+        this.isUserLoading = false;
       }
     },
     async getRepos(): Promise<void> {
       try {
         this.isReposLoading = true;
         const response = await axios.get(
-          `https://api.github.com/users/${this.searchSubject}/repos?page=${this.currPage}&per_page=${this.perPage}`
+          `https://api.github.com/users/${this.searchUser}/repos?page=${this.currPage}&per_page=${this.perPage}`,
+          {
+            headers: {
+              Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+            },
+          }
         );
         this.repos = response.data;
       } finally {
@@ -68,6 +79,11 @@ export const useGithubStore = defineStore({
         this.currPage--;
         await this.getRepos();
       }
+    },
+
+    async setSearchUser(user: string): Promise<void> {
+      this.searchUser = user;
+      console.log(this.searchUser);
     },
 
     setCurrPage(pageNumber: number): void {
