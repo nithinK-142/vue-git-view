@@ -67,7 +67,5 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
-
 const { repo } = defineProps(["repo"]);
 </script>

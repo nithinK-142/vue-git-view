@@ -81,17 +81,11 @@ export const useGithubStore = defineStore({
         await this.getRepos();
       }
     },
-
     async setSearchUser(user: string): Promise<void> {
       this.searchUser = user;
-      console.log(this.searchUser);
-    },
-
-    setCurrPage(pageNumber: number): void {
-      this.currPage = pageNumber;
-    },
-    setTotalPages(pages: number): void {
-      this.totalPages = pages;
+      this.currPage = 1;
+      this.getUser();
+      this.getRepos();
     },
   },
 });

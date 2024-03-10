@@ -2,9 +2,11 @@
   <div class="relative max-w-sm mx-auto">
     <input
       v-model="username"
+      @keyup.enter="setSearchUser(username)"
       class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500"
       type="search"
       placeholder="Search"
+      required
     />
     <button
       @click="setSearchUser(username)"
