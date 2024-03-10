@@ -16,11 +16,11 @@
     v-else-if="!isUserLoading && user"
     class="flex flex-col items-center w-full mb-4"
   >
-    <div class="w-64 h-64">
+    <div class="w-32 h-32 lg:w-64 sm:w-48 lg:h-64 sm:h-48">
       <img
         :src="user.avatar_url"
         :alt="`${user.name}'s avatar`"
-        class="w-64 h-64 border border-gray-300 rounded-full"
+        class="w-32 h-32 border border-gray-300 rounded-full lg:w-64 sm:w-48 lg:h-64 sm:h-48"
       />
     </div>
     <div class="flex flex-col justify-start mt-4">
@@ -49,10 +49,10 @@
       </p>
 
       <div class="flex mt-2 space-x-4">
-        <span class="text-gray-300"
+        <span class="text-gray-700"
           ><strong>Followers:</strong> {{ user.followers }}</span
         >
-        <span class="text-gray-300"
+        <span class="text-gray-700"
           ><strong>Following:</strong> {{ user.following }}</span
         >
       </div>
