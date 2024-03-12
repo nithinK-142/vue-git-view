@@ -2,14 +2,14 @@
   <div class="relative max-w-sm mx-auto">
     <input
       v-model="username"
-      @keyup.enter="setSearchUser(username)"
+      @keyup.enter="handleClick"
       class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500"
       type="search"
       placeholder="Search"
       required
     />
     <button
-      @click="setSearchUser(username)"
+      @click="handleClick"
       class="absolute inset-y-0 right-0 flex items-center px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-r-md hover:bg-gray-200 focus:outline-none focus:border-blue-500"
     >
       <svg
@@ -32,6 +32,10 @@
 import { useGithubStore } from "@/stores/GitStore";
 
 const { setSearchUser } = useGithubStore();
-
 let username = "";
+
+const handleClick = () => {
+  console.log(username.trim());
+  if (username.trim() !== "") setSearchUser(username);
+};
 </script>

@@ -18,9 +18,6 @@
       </button>
     </div>
   </div>
-  <template v-else>
-    <!-- Your noData template content goes here -->
-  </template>
 </template>
 
 <script setup lang="ts">

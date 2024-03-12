@@ -18,12 +18,7 @@
         <Pagination />
       </div>
     </div>
-    <p
-      v-else
-      class="pt-16 text-xl font-medium tracking-wider text-center text-gray-500"
-    >
-      {{ error }}
-    </p>
+    <Error v-else :message="error" />
   </main>
 </template>
 
@@ -33,6 +28,7 @@ import Search from "@/components/Search.vue";
 import User from "@/components/User.vue";
 import Repos from "@/components/Repos.vue";
 import Pagination from "@/components/Pagination.vue";
+import Error from "@/components/Error.vue";
 import { storeToRefs } from "pinia";
 import { useGithubStore } from "./stores/GitStore";
 

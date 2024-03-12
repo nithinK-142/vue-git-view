@@ -10,7 +10,8 @@
     >
       <Card v-for="repo in repositories" :key="repo.id" :repo="repo" />
     </div>
-    <p v-else>No repositories found.</p>
+
+    <Error v-else message="No repos found" />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import { useGithubStore } from "@/stores/GitStore";
 import { storeToRefs } from "pinia";
 import Card from "@/components/Card.vue";
 import CardSkeleton from "@/components/CardSkeleton.vue";
+import Error from "@/components/Error.vue";
 
 const githubStore = useGithubStore();
 
