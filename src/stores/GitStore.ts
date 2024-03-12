@@ -34,7 +34,7 @@ export const useGithubStore = defineStore({
     user: null as User | null,
     isUserLoading: false,
     isReposLoading: false,
-    error: null as string | null, // Add error state
+    error: null as string | null,
   }),
   actions: {
     async getUser(): Promise<void> {
@@ -49,6 +49,7 @@ export const useGithubStore = defineStore({
           // }
         );
         this.user = response.data;
+        console.log(this.user);
         this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
       } catch (error) {
         this.error = "Failed to fetch, please try again!.";
