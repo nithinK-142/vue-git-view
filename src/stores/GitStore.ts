@@ -36,8 +36,24 @@ export const useGithubStore = defineStore({
     isReposLoading: false,
     error: null as string | null,
     remainingRequests: 0,
+    repoLanguages: {} as Record<string, string>,
   }),
   actions: {
+    async getRepoLanguages(repoName: string): Promise<void> {
+      try {
+        const response = await axios.get(
+          `https://api.github.com/repos/${this.searchUser}/${repoName}/languages`
+          // {
+          //   headers: {
+          //     Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+          //   },
+          // }
+        );
+        this.repoLanguages[repoName] = Object.keys(response.data).join(", ");
+      } catch (error) {
+        console.error("Error fetching repo languages:", error);
+      }
+    },
     async getUser(): Promise<void> {
       try {
         this.isUserLoading = true;
