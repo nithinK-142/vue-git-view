@@ -53,10 +53,11 @@ export const useGithubStore = defineStore({
         this.remainingRequests = response.headers["x-ratelimit-remaining"];
 
         this.user = response.data;
-        console.log(this.user);
         this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
       } catch (error: any) {
-        if (error.response.status === 403) {
+        if (error.response.status === 404) {
+          this.error = "Oh no, entered user doesn't exist!";
+        } else if (error.response.status === 403) {
           this.error = "Oh no, you hit the rate limit! Try again later.";
         } else {
           this.error = "Oh no! Something went wrong. Try again later!";
@@ -80,7 +81,6 @@ export const useGithubStore = defineStore({
         this.remainingRequests = response.headers["x-ratelimit-remaining"];
 
         this.repos = response.data;
-        console.log(this.repos);
       } catch (error: any) {
         if (error.response.status === 403) {
           this.error = "Oh no, you hit the rate limit! Try again later.";
@@ -108,8 +108,10 @@ export const useGithubStore = defineStore({
       this.searchUser = user;
       this.currPage = 1;
       this.totalPages = 0;
-      this.getUser();
-      this.getRepos();
+      await this.getUser();
+      if (!this.error) {
+        await this.getRepos();
+      }
     },
   },
 });
