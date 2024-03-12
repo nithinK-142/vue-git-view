@@ -6,7 +6,7 @@
       v-if="!error"
       class="flex flex-col items-center justify-center mt-10 md:items-start md:flex-row bgslate-500"
     >
-      <div class="w-full md:w-[30%] lg:w-[20%] bglime-700 mt-6 md:mt-2 md:mr-2">
+      <div class="mt-6 md:mt-2 md:mr-2">
         <User />
       </div>
       <div>
