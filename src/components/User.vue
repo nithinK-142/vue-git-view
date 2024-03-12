@@ -87,26 +87,38 @@
 
       <div class="flex items-center mt-2 space-x-1">
         <div
-          class="flex flex-col items-center justify-between px-6 py-4 font-semibold bg-gray-200 dark:bg-[rgb(26,30,34)] rounded-md w-28"
+          class="flex flex-col items-center justify-between px-6 py-4 bg-gray-200 dark:bg-[rgb(26,30,34)] rounded-md w-28"
         >
-          <span class="text-2xl tracking-widest">{{ publicRepos }}</span>
-          <span class="text-xs tracking-wider text-gray-700 dark:text-gray-200">
+          <span class="text-2xl font-semibold tracking-widest">{{
+            publicRepos.toLocaleString()
+          }}</span>
+          <span
+            class="text-xs font-medium tracking-wider dark:text-[rgba(200,225,255,0.7)] text-gray-700"
+          >
             REPOSITORIES</span
           >
         </div>
         <div
-          class="flex flex-col items-center justify-between px-6 py-4 font-semibold bg-gray-200 dark:bg-[rgb(26,30,34)] rounded-md w-28"
+          class="flex flex-col items-center justify-between px-6 py-4 bg-gray-200 dark:bg-[rgb(26,30,34)] rounded-md w-28"
         >
-          <span class="text-2xl tracking-widest">{{ user.following }}</span>
-          <span class="text-xs tracking-wider text-gray-700 dark:text-gray-200">
+          <span class="text-2xl font-semibold tracking-widest">{{
+            user.following.toLocaleString()
+          }}</span>
+          <span
+            class="text-xs font-medium tracking-wider dark:text-[rgba(200,225,255,0.7)] text-gray-700"
+          >
             FOLLOWING</span
           >
         </div>
         <div
-          class="flex flex-col items-center justify-between px-6 py-4 font-semibold bg-gray-200 dark:bg-[rgb(26,30,34)] rounded-md w-28"
+          class="flex flex-col items-center justify-between px-6 py-4 bg-gray-200 dark:bg-[rgb(26,30,34)] rounded-md w-28"
         >
-          <span class="text-2xl tracking-widest">{{ user.followers }}</span>
-          <span class="text-xs tracking-wider text-gray-700 dark:text-gray-200">
+          <span class="text-2xl font-semibold tracking-widest">{{
+            user.followers.toLocaleString()
+          }}</span>
+          <span
+            class="text-xs font-medium tracking-wider dark:text-[rgba(200,225,255,0.7)] text-gray-700"
+          >
             FOLLOWERS</span
           >
         </div>

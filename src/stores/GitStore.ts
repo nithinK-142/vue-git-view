@@ -21,6 +21,7 @@ interface Repo {
   html_url: string;
   stargazers_count: number;
   forks_count: number;
+  size: number;
 }
 
 export const useGithubStore = defineStore({

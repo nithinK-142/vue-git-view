@@ -29,6 +29,12 @@
           class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"
         ></div>
       </div>
+
+      <div>
+        <div
+          class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"
+        ></div>
+      </div>
     </div>
   </div>
 </template>

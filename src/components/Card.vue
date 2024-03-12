@@ -5,7 +5,7 @@
     <div>
       <div class="relative flex justify-between mb-2">
         <h5
-          class="text-lg font-medium text-blue-600 cursor-pointer dark:text-blue-700"
+          class="text-lg font-medium tracking-wider text-blue-600 cursor-pointer dark:text-blue-700"
         >
           <a :href="repo.html_url" target="_blank" rel="noopener noreferrer">
             {{ repo.name }}
@@ -42,7 +42,7 @@
               points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
             />
           </svg>
-          <p class="mt-[3px]">{{ repo.stargazers_count }}</p>
+          <p class="mt-[3px]">{{ repo.stargazers_count.toLocaleString() }}</p>
         </div>
         <div class="flex gap-x-1">
           <svg
@@ -63,8 +63,14 @@
             <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" />
             <path d="M12 12v3" />
           </svg>
-          <p class="mt-[3px]">{{ repo.forks_count }}</p>
+          <p class="mt-[3px]">{{ repo.forks_count.toLocaleString() }}</p>
         </div>
+      </div>
+
+      <div class="flex">
+        <p class="text-xs text-neutral-700">
+          {{ repo.size.toLocaleString() }} Kb
+        </p>
       </div>
     </div>
   </div>
