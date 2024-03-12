@@ -1,5 +1,8 @@
 <template>
   <main class="flex flex-col h-screen">
+    <div class="absolute">
+      <Requests />
+    </div>
     <div class="px-4 py-6 bgpink-500">
       <Search />
     </div>
@@ -15,11 +18,17 @@
         <Pagination />
       </div>
     </div>
-    <p v-else class="text-center">{{ error }}</p>
+    <p
+      v-else
+      class="pt-16 text-xl font-medium tracking-wider text-center text-gray-500"
+    >
+      {{ error }}
+    </p>
   </main>
 </template>
 
 <script setup lang="ts">
+import Requests from "@/components/Requests.vue";
 import Search from "@/components/Search.vue";
 import User from "@/components/User.vue";
 import Repos from "@/components/Repos.vue";

@@ -35,6 +35,7 @@ export const useGithubStore = defineStore({
     isUserLoading: false,
     isReposLoading: false,
     error: null as string | null,
+    remainingRequests: 0,
   }),
   actions: {
     async getUser(): Promise<void> {
@@ -48,11 +49,18 @@ export const useGithubStore = defineStore({
           //   },
           // }
         );
+
+        this.remainingRequests = response.headers["x-ratelimit-remaining"];
+
         this.user = response.data;
         console.log(this.user);
         this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
-      } catch (error) {
-        this.error = "Failed to fetch, please try again!.";
+      } catch (error: any) {
+        if (error.response.status === 403) {
+          this.error = "Oh no, you hit the rate limit! Try again later.";
+        } else {
+          this.error = "Oh no! Something went wrong. Try again later!";
+        }
       } finally {
         this.isUserLoading = false;
       }
@@ -68,10 +76,17 @@ export const useGithubStore = defineStore({
           //   },
           // }
         );
+
+        this.remainingRequests = response.headers["x-ratelimit-remaining"];
+
         this.repos = response.data;
         console.log(this.repos);
-      } catch (error) {
-        this.error = "Failed to fetch, please try again!.";
+      } catch (error: any) {
+        if (error.response.status === 403) {
+          this.error = "Oh no, you hit the rate limit! Try again later.";
+        } else {
+          this.error = "Oh no! Something went wrong. Try again later!";
+        }
       } finally {
         this.isReposLoading = false;
       }
