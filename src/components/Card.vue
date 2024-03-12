@@ -12,12 +12,14 @@
           </a>
         </h5>
         <p
-          class="absolute right-0 top-0 text-[10px] px-3 border border-neutral-300 text-neutral-500 font-medium rounded-full"
+          class="absolute right-0 top-0 text-[10px] px-3 border border-neutral-300 dark:border-neutral-500 text-neutral-500 font-medium dark:text-neutral-800 rounded-full"
         >
           Public
         </p>
       </div>
-      <p class="mb-3 text-xs line-clamp-2 text-neutral-600">
+      <p
+        class="mb-3 text-xs line-clamp-2 text-neutral-600 dark:text-neutral-800"
+      >
         {{ repo.description }}
       </p>
     </div>

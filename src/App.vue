@@ -1,16 +1,12 @@
 <template>
   <main class="flex flex-col h-screen">
-    <div class="absolute"><Requests /></div>
-
-    <div class="absolute right-0 top-2"><ToggleMode /></div>
-
-    <div class="px-4 py-6 bgpink-500"><Search /></div>
+    <Header />
 
     <div
       v-if="!error"
-      class="flex flex-col items-center justify-center md:items-start md:flex-row bgslate-500"
+      class="flex flex-col items-center justify-center mt-10 md:items-start md:flex-row bgslate-500"
     >
-      <div class="w-full md:w-[30%] lg:w-[20%] bglime-700 md:mt-2 md:mr-2">
+      <div class="w-full md:w-[30%] lg:w-[20%] bglime-700 mt-6 md:mt-2 md:mr-2">
         <User />
       </div>
       <div>
@@ -23,13 +19,11 @@
 </template>
 
 <script setup lang="ts">
-import Requests from "@/components/Requests.vue";
-import Search from "@/components/Search.vue";
+import Header from "@/components/Header.vue";
 import User from "@/components/User.vue";
 import Repos from "@/components/Repos.vue";
 import Pagination from "@/components/Pagination.vue";
 import Error from "@/components/Error.vue";
-import ToggleMode from "@/components/ToggleMode.vue";
 import { storeToRefs } from "pinia";
 import { useGithubStore } from "./stores/GitStore";
 

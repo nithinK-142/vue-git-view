@@ -6,5 +6,4 @@
 
 <script setup lang="ts">
 const { message } = defineProps(["message"]);
-console.log(message);
 </script>

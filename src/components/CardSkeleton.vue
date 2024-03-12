@@ -14,25 +14,14 @@
         ></div>
       </div>
       <p
-        class="mb-1 animate-pulse h-[14px] w-full rounded bg-neutral-300/90 dark:bg-neutral-400/80"
+        class="mb-1 animate-pulse h-[14px] rounded bg-neutral-300/90 dark:bg-neutral-400/80"
       ></p>
       <p
-        class="mb-3 animate-pulse h-[14px] w-full rounded bg-neutral-300/90 dark:bg-neutral-400/80"
+        class="mb-3 animate-pulse h-[14px] rounded bg-neutral-300/90 dark:bg-neutral-400/80"
       ></p>
     </div>
     <div class="flex justify-between">
       <div class="flex gap-2">
-        <div
-          class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"
-        ></div>
-        <div
-          class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"
-        ></div>
-        <div
-          class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"
-        ></div>
-      </div>
-      <div class="flex items-center gap-2">
         <div
           class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"
         ></div>

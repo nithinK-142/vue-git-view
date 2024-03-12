@@ -1,8 +1,5 @@
 <template>
-  <button
-    @click="toggleDark()"
-    class="px-3 py-1 rounded-full mb-4 text-black/60 dark:text-white text-3xl absolute right-8 top-[6px]"
-  >
+  <button @click="toggleDark()">
     <div v-if="isDark">
       <svg
         xmlns="http://www.w3.org/2000/svg"

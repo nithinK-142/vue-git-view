@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-sm mx-auto">
+  <div class="relative max-w-sm pt-10 mx-auto">
     <input
       v-model="username"
       @keyup.enter="handleClick"
@@ -18,7 +18,6 @@ const { setSearchUser } = useGithubStore();
 let username = "";
 
 const handleClick = () => {
-  console.log(username.trim());
   if (username.trim() !== "") setSearchUser(username);
 };
 </script>

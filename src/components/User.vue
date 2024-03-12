@@ -36,7 +36,7 @@
         :href="user.html_url"
         target="_blank"
         rel="noopener noreferrer"
-        class="font-mono text-center text-blue-600 hover:text-blue-800"
+        class="font-mono text-center text-blue-600 dark:text-[rgb(121,184,255)]"
       >
         @{{ user.login }}
       </a>
