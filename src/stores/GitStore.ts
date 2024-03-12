@@ -34,21 +34,24 @@ export const useGithubStore = defineStore({
     user: null as User | null,
     isUserLoading: false,
     isReposLoading: false,
+    error: null as string | null, // Add error state
   }),
   actions: {
     async getUser(): Promise<void> {
       try {
         this.isUserLoading = true;
         const response = await axios.get(
-          `https://api.github.com/users/${this.searchUser}`,
-          {
-            headers: {
-              Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
-            },
-          }
+          `https://api.github.com/users/${this.searchUser}`
+          // {
+          //   headers: {
+          //     Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+          //   },
+          // }
         );
         this.user = response.data;
         this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
+      } catch (error) {
+        this.error = "Failed to fetch, please try again!.";
       } finally {
         this.isUserLoading = false;
       }
@@ -57,14 +60,17 @@ export const useGithubStore = defineStore({
       try {
         this.isReposLoading = true;
         const response = await axios.get(
-          `https://api.github.com/users/${this.searchUser}/repos?page=${this.currPage}&per_page=${this.perPage}&sort=updated`,
-          {
-            headers: {
-              Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
-            },
-          }
+          `https://api.github.com/users/${this.searchUser}/repos?page=${this.currPage}&per_page=${this.perPage}&sort=updated`
+          // {
+          //   headers: {
+          //     Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+          //   },
+          // }
         );
         this.repos = response.data;
+        console.log(this.repos);
+      } catch (error) {
+        this.error = "Failed to fetch, please try again!.";
       } finally {
         this.isReposLoading = false;
       }
@@ -82,8 +88,10 @@ export const useGithubStore = defineStore({
       }
     },
     async setSearchUser(user: string): Promise<void> {
+      this.error = null;
       this.searchUser = user;
       this.currPage = 1;
+      this.totalPages = 0;
       this.getUser();
       this.getRepos();
     },
