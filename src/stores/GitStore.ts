@@ -37,6 +37,7 @@ export const useGithubStore = defineStore({
     error: null as string | null,
     remainingRequests: 0,
     repoLanguages: {} as Record<string, string>,
+    publicRepos: 0,
   }),
   actions: {
     async getRepoLanguages(repoName: string): Promise<void> {
@@ -69,7 +70,8 @@ export const useGithubStore = defineStore({
         this.remainingRequests = response.headers["x-ratelimit-remaining"];
 
         this.user = response.data;
-        this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
+        this.publicRepos = response.data.public_repos;
+        this.totalPages = Math.ceil(this.publicRepos / this.perPage);
       } catch (error: any) {
         if (error.response.status === 404) {
           this.error = "User not found!";

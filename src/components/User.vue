@@ -15,6 +15,7 @@
       <div class="w-40 h-4 mt-6 bg-gray-300 rounded animate-pulse"></div>
       <div class="w-32 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
       <div class="w-32 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
+      <div class="w-32 h-4 mt-2 bg-gray-300 rounded animate-pulse"></div>
     </div>
   </div>
   <div
@@ -125,6 +126,185 @@
           user.blog.replace(/^(https?:\/\/)?/, "")
         }}</a>
       </div>
+
+      <div
+        v-if="publicRepos"
+        class="flex items-center mt-1 hover:opacity-90"
+        title="Public Repos"
+      >
+        <div class="h-4 mr-1 fill-black dark:fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 416 448"
+            class="w-auto h-full"
+          >
+            <text
+              y="1009.712"
+              x="51.232"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                font-size: 13.8125px;
+                line-height: 125%;
+                font-family: Calibri;
+                text-align: start;
+                letter-spacing: 0;
+                word-spacing: 0;
+                text-anchor: start;
+                fill: #000;
+                fill-opacity: 1;
+                stroke: none;
+              "
+              xml:space="preserve"
+              transform="translate(0 -604.362)"
+            >
+              <tspan y="0" x="0"></tspan>
+            </text>
+            <text
+              y="1080.2"
+              x="82.93"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                font-size: 13.8125px;
+                line-height: 125%;
+                font-family: Calibri;
+                text-align: start;
+                letter-spacing: 0;
+                word-spacing: 0;
+                text-anchor: start;
+                fill: #000;
+                fill-opacity: 1;
+                stroke: none;
+              "
+              xml:space="preserve"
+              transform="translate(0 -604.362)"
+            >
+              <tspan y="0" x="0"></tspan>
+            </text>
+            <text
+              y="1331.036"
+              x="414.305"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                font-size: 82.5056076px;
+                line-height: 125%;
+                font-family: Calibri;
+                text-align: start;
+                letter-spacing: 0;
+                word-spacing: 0;
+                text-anchor: start;
+                fill: #000;
+                fill-opacity: 1;
+                stroke: none;
+              "
+              xml:space="preserve"
+              transform="matrix(1.00894 0 0 .99114 0 -604.362)"
+            >
+              <tspan y="0" x="0"></tspan>
+            </text>
+            <text
+              y="1087.359"
+              x="85.309"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                font-size: 13.8125px;
+                line-height: 125%;
+                font-family: Calibri;
+                text-align: start;
+                letter-spacing: 0;
+                word-spacing: 0;
+                text-anchor: start;
+                fill: #000;
+                fill-opacity: 1;
+                stroke: none;
+              "
+              xml:space="preserve"
+              transform="translate(0 -604.362)"
+            >
+              <tspan y="0" x="0"></tspan>
+            </text>
+            <g
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                font-size: 13.8125px;
+                line-height: 125%;
+                font-family: Calibri;
+                text-align: start;
+                letter-spacing: 0;
+                word-spacing: 0;
+                text-anchor: start;
+                fill: #000;
+                fill-opacity: 1;
+                stroke: none;
+              "
+              transform="matrix(6.2024 0 0 6.20168 -62.87 -5962.197)"
+            />
+            <text
+              y="1083.796"
+              x="83.373"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                font-size: 13.8125px;
+                line-height: 125%;
+                font-family: Calibri;
+                text-align: start;
+                letter-spacing: 0;
+                word-spacing: 0;
+                text-anchor: start;
+                fill-opacity: 1;
+                stroke: none;
+              "
+              xml:space="preserve"
+              transform="translate(0 -604.362)"
+            >
+              <tspan y="0" x="0"></tspan>
+            </text>
+            <g
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                font-size: 13.8125px;
+                line-height: 125%;
+                font-family: Calibri;
+                text-align: start;
+                letter-spacing: 0;
+                word-spacing: 0;
+                text-anchor: start;
+                fill: #000;
+                fill-opacity: 1;
+                stroke: none;
+              "
+              transform="matrix(7.56694 0 0 7.56224 -98.504 -7383.347)"
+            />
+            <path
+              style="
+                fill-opacity: 1;
+                stroke: none;
+                stroke-width: 32;
+                stroke-linecap: round;
+                stroke-miterlimit: 4;
+                stroke-dasharray: none;
+                stroke-opacity: 1;
+              "
+              d="M208 636.362a21.86 21.86 0 0 0-15.505 6.442l-33.714 33.714 37.763 37.762A36 36 0 0 1 208 712.362a36 36 0 0 1 36 36 36 36 0 0 1-1.908 11.465l50.453 50.453A36 36 0 0 1 304 808.362a36 36 0 0 1 36 36 36 36 0 0 1-36 36 36 36 0 0 1-36-36 36 36 0 0 1 1.908-11.463L224 786.991v121.17a36 36 0 0 1 20 32.201 36 36 0 0 1-36 36 36 36 0 0 1-36-36 36 36 0 0 1 20-32.232V780.563a36 36 0 0 1-20-32.2 36 36 0 0 1 1.909-11.464l-37.754-37.754L6.44 828.858a21.877 21.877 0 0 0 0 31.008l186.054 186.055a21.877 21.877 0 0 0 31.008 0l186.055-186.055a21.877 21.877 0 0 0 0-31.008L223.503 642.804A21.86 21.86 0 0 0 208 636.362"
+              transform="translate(0 -604.362)"
+            />
+          </svg>
+        </div>
+        {{ publicRepos }}
+      </div>
     </div>
   </div>
 </template>
@@ -136,7 +316,7 @@ import { storeToRefs } from "pinia";
 
 const githubStore = useGithubStore();
 
-const { isUserLoading } = storeToRefs(githubStore);
+const { isUserLoading, publicRepos } = storeToRefs(githubStore);
 onMounted(async () => await githubStore.getUser());
 
 const user = computed(() => githubStore.user);
