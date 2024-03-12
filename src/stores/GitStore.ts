@@ -1,28 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-
-interface User {
-  avatar_url: string;
-  name: string;
-  login: string;
-  bio?: string;
-  company?: string;
-  location?: string;
-  blog?: string;
-  html_url: string;
-  followers: number;
-  following: number;
-}
-
-interface Repo {
-  id: number;
-  name: string;
-  description: string;
-  html_url: string;
-  stargazers_count: number;
-  forks_count: number;
-  size: number;
-}
+import type { Repo, User } from "@/models/models";
 
 export const useGithubStore = defineStore({
   id: "github",

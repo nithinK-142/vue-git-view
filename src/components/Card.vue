@@ -18,13 +18,21 @@
         </p>
       </div>
       <p
-        class="mb-3 text-xs line-clamp-2 text-neutral-600 dark:text-neutral-800"
+        class="mb-3 text-xs tracking-wide line-clamp-2 text-neutral-600 dark:text-neutral-800"
       >
         {{ repo.description }}
       </p>
     </div>
     <div class="flex justify-between">
       <div class="flex gap-2 items-center text-[12px] text-neutral-700">
+        <div v-if="repo.language" class="flex items-center space-x-1">
+          <div
+            class="inline-block w-2.5 h-2.5 bg-gray-500 rounded-full"
+            :style="{ backgroundColor: langColors[repo.language] }"
+          ></div>
+
+          <span>{{ repo.language }}</span>
+        </div>
         <div class="flex gap-x-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -77,5 +85,7 @@
 </template>
 
 <script setup lang="ts">
-const { repo } = defineProps(["repo"]);
+import { type Repo, langColors } from "@/models/models";
+
+const { repo: Repo } = defineProps(["repo"]);
 </script>
