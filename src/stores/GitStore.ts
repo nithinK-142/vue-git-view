@@ -56,7 +56,7 @@ export const useGithubStore = defineStore({
         this.totalPages = Math.ceil(response.data.public_repos / this.perPage);
       } catch (error: any) {
         if (error.response.status === 404) {
-          this.error = "Oh no, entered user doesn't exist!";
+          this.error = "User not found!";
         } else if (error.response.status === 403) {
           this.error = "Oh no, you hit the rate limit! Try again later.";
         } else {
@@ -106,6 +106,8 @@ export const useGithubStore = defineStore({
     async setSearchUser(user: string): Promise<void> {
       this.error = null;
       this.searchUser = user;
+      this.repos = [];
+      this.user = null;
       this.currPage = 1;
       this.totalPages = 0;
       await this.getUser();
