@@ -1,11 +1,11 @@
 <template>
   <main class="flex flex-col h-screen">
-    <div class="absolute">
-      <Requests />
-    </div>
-    <div class="px-4 py-6 bgpink-500">
-      <Search />
-    </div>
+    <div class="absolute"><Requests /></div>
+
+    <div class="absolute right-0 top-2"><ToggleMode /></div>
+
+    <div class="px-4 py-6 bgpink-500"><Search /></div>
+
     <div
       v-if="!error"
       class="flex flex-col items-center justify-center md:items-start md:flex-row bgslate-500"
@@ -29,6 +29,7 @@ import User from "@/components/User.vue";
 import Repos from "@/components/Repos.vue";
 import Pagination from "@/components/Pagination.vue";
 import Error from "@/components/Error.vue";
+import ToggleMode from "@/components/ToggleMode.vue";
 import { storeToRefs } from "pinia";
 import { useGithubStore } from "./stores/GitStore";
 

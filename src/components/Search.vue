@@ -3,7 +3,7 @@
     <input
       v-model="username"
       @keyup.enter="handleClick"
-      class="w-full px-5 tracking-widest py-3.5 text-xl bg-[#f6f8fa] text-gray-500 rounded-md shadow-lg dark:bg-[rgb(38,48,60)] dark:text-[rgb(121,184,255)] focus:outline-none"
+      class="w-full px-5 tracking-widest py-3.5 text-xl bg-[#f6f8fa] text-gray-500 rounded-md shadow-lg dark:bg-[rgb(38,48,60)] dark:text-[rgb(121,184,255)] focus:outline-none text-center"
       type="search"
       placeholder="Search"
       required

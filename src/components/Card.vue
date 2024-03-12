@@ -1,10 +1,12 @@
 <template>
   <div
-    class="p-4 w-72 mx-auto sm:w-[25rem] h-[8rem] bg-white rounded-lg border border-gray-200 shadow flex flex-col justify-between"
+    class="p-4 w-72 mx-auto sm:w-[25rem] h-[8rem] bg-white dark:bg-[#f6f8fa]/80 rounded-lg border border-gray-200 dark:border-gray-700 shadow flex flex-col justify-between"
   >
     <div>
       <div class="relative flex justify-between mb-2">
-        <h5 class="text-lg font-medium text-blue-600 cursor-pointer">
+        <h5
+          class="text-lg font-medium text-blue-600 cursor-pointer dark:text-blue-700"
+        >
           <a :href="repo.html_url" target="_blank" rel="noopener noreferrer">
             {{ repo.name }}
           </a>

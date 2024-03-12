@@ -6,21 +6,6 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #f6f8fa;
-  /* background-color: rgb(26, 30, 34);
-  background-image: linear-gradient(rgb(26, 30, 34) 0%, rgb(36, 41, 46) 100%); */
-  color: white;
+  @apply bg-[#f6f8fa] dark:text-white dark:bg-[linear-gradient(rgb(36,41,46)_0%,rgb(36,41,46)_100%)];
+  /* @apply dark:bg-[rgb(26,30,34)]; */
 }
-
-/* body {
-  font-family: "Roboto", sans-serif;
-  background-color: #f6f8fa;
-  color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: rgb(26, 30, 34);
-    background-image: linear-gradient(rgb(26, 30, 34) 0%, rgb(36, 41, 46) 100%);
-  }
-} */

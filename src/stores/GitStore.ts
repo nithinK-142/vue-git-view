@@ -126,10 +126,12 @@ export const useGithubStore = defineStore({
       this.user = null;
       this.currPage = 1;
       this.totalPages = 0;
-      await this.getUser();
-      if (!this.error) {
-        await this.getRepos();
-      }
+      this.getUser();
+      this.getRepos();
+      // await this.getUser();
+      // if (!this.error) {
+      //   await this.getRepos();
+      // }
     },
   },
 });

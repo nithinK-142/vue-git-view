@@ -40,11 +40,14 @@
       >
         @{{ user.login }}
       </a>
-      <p v-if="user.bio" class="mt-2 text-center text-gray-700 text-wrap">
+      <p
+        v-if="user.bio"
+        class="mt-2 text-center text-gray-700 dark:text-gray-200 text-wrap"
+      >
         {{ user.bio }}
       </p>
       <div class="flex items-center mt-2 mb-4">
-        <div class="h-4 mr-1">
+        <div class="h-4 mr-1 fill-black dark:fill-white">
           <svg
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -60,15 +63,22 @@
         </div>
         <span class="font-semibold"
           >{{ user.followers
-          }}<span class="font-normal text-gray-700"> followers</span>
+          }}<span class="font-normal text-gray-700 dark:text-gray-200">
+            followers</span
+          >
         </span>
         <span class="ml-2 font-semibold"
           >{{ user.following
-          }}<span class="font-normal text-gray-700"> following</span></span
+          }}<span class="font-normal text-gray-700 dark:text-gray-200">
+            following</span
+          ></span
         >
       </div>
-      <div v-if="user.company" class="flex items-center mt-1 text-gray-700">
-        <div class="h-4 mr-1">
+      <div
+        v-if="user.company"
+        class="flex items-center mt-1 text-gray-700 dark:text-gray-200"
+      >
+        <div class="h-4 mr-1 fill-black dark:fill-white">
           <svg
             viewBox="0 0 50 50"
             xmlns="http://www.w3.org/2000/svg"
@@ -81,8 +91,11 @@
         </div>
         {{ user.company }}
       </div>
-      <div v-if="user.location" class="flex items-center mt-1 text-gray-700">
-        <div class="h-4 mr-1">
+      <div
+        v-if="user.location"
+        class="flex items-center mt-1 text-gray-700 dark:text-gray-200"
+      >
+        <div class="h-4 mr-1 fill-black dark:fill-white">
           <svg
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +109,7 @@
         {{ user.location }}
       </div>
       <div v-if="user.blog" class="flex items-center mt-1 hover:opacity-90">
-        <div class="h-4 mr-1">
+        <div class="h-4 mr-1 fill-black dark:fill-white">
           <svg
             viewBox="-3 -3 24 24"
             xmlns="http://www.w3.org/2000/svg"
