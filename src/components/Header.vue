@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import Requests from "@/components/Requests.vue";
-import Search from "@/components/Search.vue";
-import ToggleMode from "@/components/ToggleMode.vue";
+import Requests from '@/components/Requests.vue'
+import Search from '@/components/Search.vue'
+import ToggleMode from '@/components/ToggleMode.vue'
 </script>

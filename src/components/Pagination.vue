@@ -21,12 +21,12 @@
 </template>
 
 <script setup lang="ts">
-import { useGithubStore } from "@/stores/GitStore";
-import { storeToRefs } from "pinia";
+import { useGithubStore } from '@/stores/GitStore'
+import { storeToRefs } from 'pinia'
 
-const githubStore = useGithubStore();
+const githubStore = useGithubStore()
 
-const { currPage, totalPages } = storeToRefs(githubStore);
+const { currPage, totalPages } = storeToRefs(githubStore)
 
-const { nextPage, prevPage } = githubStore;
+const { nextPage, prevPage } = githubStore
 </script>

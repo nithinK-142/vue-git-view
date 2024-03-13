@@ -17,9 +17,7 @@
           Public
         </p>
       </div>
-      <p
-        class="mb-3 text-xs tracking-wide line-clamp-2 text-neutral-600 dark:text-neutral-800"
-      >
+      <p class="mb-3 text-xs tracking-wide line-clamp-2 text-neutral-600 dark:text-neutral-800">
         {{ repo.description }}
       </p>
     </div>
@@ -76,16 +74,14 @@
       </div>
 
       <div class="flex">
-        <p class="text-xs text-neutral-700">
-          {{ repo.size.toLocaleString() }} Kb
-        </p>
+        <p class="text-xs text-neutral-700">{{ repo.size.toLocaleString() }} Kb</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { type Repo, langColors } from "@/models/models";
+import { type Repo, langColors } from '@/models/models'
 
-const { repo: Repo } = defineProps(["repo"]);
+defineProps<{ repo: Repo }>()
 </script>

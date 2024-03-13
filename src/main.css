@@ -1,11 +1,11 @@
-@import "@fontsource/roboto";
+@import '@fontsource/roboto';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   @apply bg-[#f6f8fa] dark:text-white dark:bg-[linear-gradient(rgb(36,41,46)_0%,rgb(36,41,46)_100%)];
   /* @apply dark:bg-[rgb(26,30,34)]; */
 }

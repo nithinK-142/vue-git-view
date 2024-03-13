@@ -12,12 +12,12 @@
 </template>
 
 <script setup lang="ts">
-import { useGithubStore } from "@/stores/GitStore";
+import { useGithubStore } from '@/stores/GitStore'
 
-const { setSearchUser } = useGithubStore();
-let username = "";
+const { setSearchUser } = useGithubStore()
+let username = ''
 
 const handleClick = () => {
-  if (username.trim() !== "") setSearchUser(username);
-};
+  if (username.trim() !== '') setSearchUser(username)
+}
 </script>

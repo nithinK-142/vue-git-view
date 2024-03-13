@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-const { message } = defineProps(["message"]);
+defineProps<{ message: string }>()
 </script>

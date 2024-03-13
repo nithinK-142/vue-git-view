@@ -19,15 +19,15 @@
 </template>
 
 <script setup lang="ts">
-import Header from "@/components/Header.vue";
-import User from "@/components/User.vue";
-import Repos from "@/components/Repos.vue";
-import Pagination from "@/components/Pagination.vue";
-import Error from "@/components/Error.vue";
-import { storeToRefs } from "pinia";
-import { useGithubStore } from "./stores/GitStore";
+import Header from '@/components/Header.vue'
+import User from '@/components/User.vue'
+import Repos from '@/components/Repos.vue'
+import Pagination from '@/components/Pagination.vue'
+import Error from '@/components/Error.vue'
+import { storeToRefs } from 'pinia'
+import { useGithubStore } from './stores/GitStore'
 
-const githubStore = useGithubStore();
+const githubStore = useGithubStore()
 
-const { error } = storeToRefs(githubStore);
+const { error } = storeToRefs(githubStore)
 </script>
