@@ -151,13 +151,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { useGithubStore } from '@/stores/GitStore'
 import { storeToRefs } from 'pinia'
 
 const githubStore = useGithubStore()
 
-onMounted(async () => await githubStore.getUser())
+githubStore.getUser()
 
 const { isUserLoading, publicRepos, user } = storeToRefs(githubStore)
 

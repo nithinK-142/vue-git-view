@@ -15,14 +15,13 @@
 <script setup lang="ts">
 import { useGithubStore } from '@/stores/GitStore'
 import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import ProjectCardSkeleton from '@/components/ProjectCardSkeleton.vue'
 import ErrorMessage from '@/components/ErrorMessage.vue'
 
 const githubStore = useGithubStore()
 
-onMounted(async () => await githubStore.getRepos())
+githubStore.getRepos()
 
 const { isReposLoading, userRepos } = storeToRefs(githubStore)
 </script>
