@@ -10,6 +10,7 @@ export const useGithubStore = defineStore({
     currPage: 1,
     perPage: 6,
     repos: [] as Repo[],
+    userRepos: [] as Repo[],
     user: null as User | null,
     isUserLoading: false,
     isReposLoading: false,
@@ -67,7 +68,7 @@ export const useGithubStore = defineStore({
       try {
         this.isReposLoading = true
         const response = await axios.get(
-          `https://api.github.com/users/${this.searchUser}/repos?page=${this.currPage}&per_page=${this.perPage}&sort=updated`
+          `https://api.github.com/users/${this.searchUser}/repos?page=${this.currPage}&per_page=100&sort=updated`
           // {
           //   headers: {
           //     Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
@@ -76,8 +77,9 @@ export const useGithubStore = defineStore({
         )
 
         this.remainingRequests = response.headers['x-ratelimit-remaining']
-
         this.repos = response.data
+
+        await this.displayRepos()
       } catch (error: any) {
         if (error.response.status === 403) {
           this.error = 'Oh no, you hit the rate limit! Try again later.'
@@ -88,16 +90,22 @@ export const useGithubStore = defineStore({
         this.isReposLoading = false
       }
     },
+    async displayRepos(): Promise<void> {
+      const startIndex = (this.currPage - 1) * this.perPage
+      const endIndex = startIndex + this.perPage
+      this.userRepos = this.repos.slice(startIndex, endIndex)
+    },
+
     async nextPage(): Promise<void> {
       if (this.currPage < this.totalPages) {
         this.currPage++
-        await this.getRepos()
+        await this.displayRepos()
       }
     },
     async prevPage(): Promise<void> {
       if (this.currPage > 1) {
         this.currPage--
-        await this.getRepos()
+        await this.displayRepos()
       }
     },
     async setSearchUser(user: string): Promise<void> {

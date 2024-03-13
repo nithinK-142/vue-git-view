@@ -1,19 +1,19 @@
 <template>
   <div v-if="isReposLoading" class="grid grid-cols-1 gap-2 p-4 lg:grid-cols-2">
-    <ProjectCardSkeleton />
+    <ProjectCardSkeleton v-if="isReposLoading" />
+  </div>
+
+  <div v-else-if="userRepos.length > 0" class="grid grid-cols-1 gap-2 p-4 lg:grid-cols-2">
+    <ProjectCard v-for="repo in userRepos" :key="repo.id" :repo="repo" />
   </div>
 
   <div v-else>
-    <div v-if="repositories.length > 0" class="grid grid-cols-1 gap-2 p-4 lg:grid-cols-2">
-      <ProjectCard v-for="repo in repositories" :key="repo.id" :repo="repo" />
-    </div>
-
-    <ErrorMessage v-else message="No repos found" />
+    <ErrorMessage message="No repos found" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useGithubStore } from '@/stores/GitStore'
 import { storeToRefs } from 'pinia'
 import ProjectCard from '@/components/ProjectCard.vue'
@@ -22,9 +22,7 @@ import ErrorMessage from '@/components/ErrorMessage.vue'
 
 const githubStore = useGithubStore()
 
-const { isReposLoading } = storeToRefs(githubStore)
+const { isReposLoading, userRepos } = storeToRefs(githubStore)
 
 onMounted(async () => await githubStore.getRepos())
-
-const repositories = computed(() => githubStore.repos)
 </script>
