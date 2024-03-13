@@ -16,8 +16,9 @@
     </div>
     <div class="flex justify-between">
       <div class="flex gap-2">
-        <div class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"></div>
-        <div class="w-10 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"></div>
+        <div class="w-16 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"></div>
+        <div class="w-8 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"></div>
+        <div class="w-8 h-4 rounded animate-pulse bg-neutral-300/90 dark:bg-neutral-400/80"></div>
       </div>
 
       <div>

@@ -13,11 +13,21 @@
 
 <script setup lang="ts">
 import { useGithubStore } from '@/stores/GitStore'
+import { ref } from 'vue'
 
 const { setSearchUser } = useGithubStore()
-let username = ''
+
+const username = ref('')
+const githubUrlRegex = /(?:https?:\/\/)?(?:www\.)?github\.com\/([a-zA-Z0-9-]+)/
 
 const handleClick = () => {
-  if (username.trim() !== '') setSearchUser(username)
+  if (username.value.trim() !== '') {
+    const match = username.value.match(githubUrlRegex)
+
+    if (match && match[1]) setSearchUser(match[1])
+    else setSearchUser(username.value)
+
+    username.value = ''
+  }
 }
 </script>
