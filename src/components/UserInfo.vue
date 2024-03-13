@@ -157,10 +157,9 @@ import { storeToRefs } from 'pinia'
 
 const githubStore = useGithubStore()
 
-const { isUserLoading, publicRepos } = storeToRefs(githubStore)
 onMounted(async () => await githubStore.getUser())
 
-const user = computed(() => githubStore.user)
+const { isUserLoading, publicRepos, user } = storeToRefs(githubStore)
 
 const bioChunks = computed(() => {
   if (user.value && user.value.bio) {
@@ -170,8 +169,6 @@ const bioChunks = computed(() => {
       chunks.push(bio.slice(i, i + 50))
     }
     return chunks
-  } else {
-    return []
-  }
+  } else return []
 })
 </script>

@@ -13,16 +13,16 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useGithubStore } from '@/stores/GitStore'
 import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import ProjectCardSkeleton from '@/components/ProjectCardSkeleton.vue'
 import ErrorMessage from '@/components/ErrorMessage.vue'
 
 const githubStore = useGithubStore()
 
-const { isReposLoading, userRepos } = storeToRefs(githubStore)
-
 onMounted(async () => await githubStore.getRepos())
+
+const { isReposLoading, userRepos } = storeToRefs(githubStore)
 </script>
